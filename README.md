@@ -6,20 +6,16 @@
 To automate the process of reading personal transaction data from a CSV file, categorizing expenses into various groups (Food, Transport, Bills, Others), and generating a summary report with total amounts and current date in an Excel file using UiPath.
 
 ## Materials Required
-UiPath Studio (Community/Enterprise Edition)
-Windows OS
-Input transaction file (CSV format)
-Basic knowledge of UiPath:
-Read CSV
-For Each Row
-If Condition
-Dictionary & Variables
-Add Data Row
-Write CSV
+```
+1.UiPath Studio (Community/Enterprise Edition)
+2.Windows OS
+3.Input transaction file (CSV format)
+
+```
 
 ## Procedure
 
-Step 1: Prepare Input File
+# Step 1: Prepare Input File
   Create a CSV file named transactions.csv
   Columns: Date, Description, Amount
   Example:
@@ -28,7 +24,7 @@ Step 1: Prepare Input File
   2025-05-21, Swiggy Order, 250
   ~~~
 
-Step 2: Build Category Logic
+# Step 2: Build Category Logic
   Read the CSV file using Read CSV → Output: dtTransactions.
   Create a Dictionary variable:
   Name: categoryTotals
@@ -63,7 +59,7 @@ Step 2: Build Category Logic
   
   Else
       → categoryTotals("Others") += amount
-  📊 Step 3: Create a Summary Table
+ #  Step 3: Create a Summary Table
   Add Build Data Table activity → Name it dtSummary
   
   Columns: Category (String), Total (Double), Date (String)
@@ -73,7 +69,7 @@ Step 2: Build Category Logic
   Add Data Row:
   ~~~
   { item.Key, item.Value, Now.ToString("dd-MM-yyyy") }
-  📤 Step 4: Write Output
+   Step 4: Write Output:
   Use Write CSV activity
   ~~~
 
